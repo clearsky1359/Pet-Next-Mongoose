@@ -8,10 +8,9 @@ async function dbConnect() {
   if (connection.isConnected) {
     return;
   }
-
+  //"mongodb+srv://nikan:Serarch12@cluster0.xpt9k.mongodb.net/?retryWrites=true&w=majority",
   /* connecting to our database */
-  const db = await mongoose.connect(
-    "mongodb+srv://nikan:Serarch12@cluster0.xpt9k.mongodb.net/?retryWrites=true&w=majority",
+  const db = await mongoose.connect(process.env.MONGODB_URI,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
